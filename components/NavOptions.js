@@ -35,6 +35,7 @@ const NavOptions = () => {
           <Text style={tw`mt-2 text-lg font-semibold`}>{item.title}</Text>
           <Icon 
             name="arrowright"
+            color="white"
             type='antdesign'
           />
         </View>
