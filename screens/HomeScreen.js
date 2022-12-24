@@ -6,11 +6,12 @@ import NavOptions from '../components/NavOptions';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import { useDispatch } from 'react-redux';
 import { setDestination, setOrigin } from '../slices/navSlice';
+import NavFavorites from '../components/NavFavorites';
 
 // import { GOOGLE_MAPS_APIKEY } from "@env";
 // const { REACT_APP_GOOGLE_MAPS_APIKEY } = process.env;
 // usually you would import this from your .env file, but it doesn't work for me :(
-const REACT_APP_GOOGLE_MAPS_APIKEY = "AIzaSyBaaMs9V1IeBetjV5t2ECvSOxwmr-FKVSQ";
+const REACT_APP_GOOGLE_MAPS_APIKEY = "AIzaSyAKh8z7N7Tfh_mLTh4jlSF2ZMyzlILzaDU";
 
 const HomeScreen = () => {
     const dispatch = useDispatch();
@@ -71,9 +72,8 @@ const HomeScreen = () => {
                 debounce={400}
             />
 
-            <NavOptions>
-                
-            </NavOptions>
+            <NavOptions />
+            <NavFavorites />
         </View>
 
         {/* <Text style={tw`text-red-500 p-10`}>
