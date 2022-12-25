@@ -2,8 +2,8 @@ import { StyleSheet, Text, View } from 'react-native'
 import React, { useEffect } from 'react'
 import MapView, { Marker} from "react-native-maps";
 import tw from 'twrnc';
-import { selectDestination, selectOrigin } from "../slices/navSlice";
-import { useSelector } from 'react-redux';
+import { selectDestination, selectOrigin, setTravelTimeInformation } from "../slices/navSlice";
+import { useDispatch, useSelector } from 'react-redux';
 import MapViewDirections from "react-native-maps-directions";
 import { useRef } from 'react';
 // import { GOOGLE_MAPS_APIKEY } from "@env";
@@ -15,6 +15,7 @@ const Map = () => {
     const origin = useSelector(selectOrigin);
     const destination = useSelector(selectDestination);
     const mapRef = useRef(null);
+    const dispatch = useDispatch();
 
     // zoom and fit to markers
     useEffect(() => {
@@ -25,6 +26,23 @@ const Map = () => {
             edgePadding: { top: 50, right: 50, bottom: 50, left: 50 },
         });
     }, [origin, destination]);
+
+    // use effect card dependent upon input variables, makes request to API with information via Redux, pulls information for ride
+    useEffect(() => {
+        if (!origin || !destination) return;
+        // fetch from Google API
+        const getTravelTime = async() => {
+            fetch(`https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=
+            ${origin.description}&destinations=${destination.description}&key=${REACT_APP_GOOGLE_MAPS_APIKEY}`)
+
+            .then((res) => res.json())
+            .then(data => {
+                dispatch(setTravelTimeInformation(data.rows[0].elements[0]))
+            });
+        };
+
+        getTravelTime();
+    }, [origin, destination, REACT_APP_GOOGLE_MAPS_APIKEY])
 
   return (
     <MapView
