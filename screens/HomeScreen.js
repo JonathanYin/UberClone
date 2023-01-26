@@ -8,10 +8,8 @@ import { useDispatch } from 'react-redux';
 import { setDestination, setOrigin } from '../slices/navSlice';
 import NavFavorites from '../components/NavFavorites';
 
-// import { GOOGLE_MAPS_APIKEY } from "@env";
-// const { REACT_APP_GOOGLE_MAPS_APIKEY } = process.env;
-// usually you would import this from your .env file, but it doesn't work for me :(
-const REACT_APP_GOOGLE_MAPS_APIKEY = "AIzaSyAKh8z7N7Tfh_mLTh4jlSF2ZMyzlILzaDU";
+import { GOOGLE_MAPS_APIKEY } from "@env";
+const { REACT_APP_GOOGLE_MAPS_APIKEY } = process.env;
 
 const HomeScreen = () => {
     const dispatch = useDispatch();

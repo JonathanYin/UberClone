@@ -6,10 +6,11 @@ import { selectDestination, selectOrigin, setTravelTimeInformation } from "../sl
 import { useDispatch, useSelector } from 'react-redux';
 import MapViewDirections from "react-native-maps-directions";
 import { useRef } from 'react';
-// import { GOOGLE_MAPS_APIKEY } from "@env";
-// const { REACT_APP_GOOGLE_MAPS_APIKEY } = process.env;
-// usually you would import this from your .env file, but it doesn't work for me :(
-const REACT_APP_GOOGLE_MAPS_APIKEY = "AIzaSyAKh8z7N7Tfh_mLTh4jlSF2ZMyzlILzaDU";
+
+import { GOOGLE_MAPS_APIKEY } from "@env";
+const { REACT_APP_GOOGLE_MAPS_APIKEY } = process.env;
+
+console.log("Key is", REACT_APP_GOOGLE_MAPS_APIKEY);
 
 const Map = () => {
     const origin = useSelector(selectOrigin);

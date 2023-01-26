@@ -7,10 +7,8 @@ import { setDestination } from '../slices/navSlice';
 import { useNavigation } from '@react-navigation/native'
 import NavFavorites from './NavFavorites';
 import { Icon } from '@rneui/themed';
-// import { GOOGLE_MAPS_APIKEY } from "@env";
-// const { REACT_APP_GOOGLE_MAPS_APIKEY } = process.env;
-// usually you would import this from your .env file, but it doesn't work for me :(
-const REACT_APP_GOOGLE_MAPS_APIKEY = "AIzaSyAKh8z7N7Tfh_mLTh4jlSF2ZMyzlILzaDU";
+import { GOOGLE_MAPS_APIKEY } from "@env";
+const { REACT_APP_GOOGLE_MAPS_APIKEY } = process.env;
 
 const NavigateCard = () => {
     // hook, gives us react object
