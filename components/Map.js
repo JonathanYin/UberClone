@@ -10,8 +10,6 @@ import { useRef } from 'react';
 import { GOOGLE_MAPS_APIKEY } from "@env";
 const { REACT_APP_GOOGLE_MAPS_APIKEY } = process.env;
 
-console.log("Key is", REACT_APP_GOOGLE_MAPS_APIKEY);
-
 const Map = () => {
     const origin = useSelector(selectOrigin);
     const destination = useSelector(selectDestination);
