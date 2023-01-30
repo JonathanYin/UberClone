@@ -1,7 +1,7 @@
 # UberClone
 
 [![Uber](images/uber.jpg)](images/uber.jpg)
-Uber app clone on iOS. Made with React Native, Expo, Redux, Tailwind CSS, and Google APIs
+Uber app clone on iOS/Android. Made with React Native, Expo, Redux, Tailwind CSS, and Google APIs
 
 ## Usage
 
